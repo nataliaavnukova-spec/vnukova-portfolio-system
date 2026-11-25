@@ -25,7 +25,9 @@ Next.js (App Router) + TypeScript + Tailwind v4. Деталі — після к�
 
 ## Компоненти
 
-Заповнюється на кроці 3.
+Лежать у `components/<Назва>/` (компонент, історія `.stories.tsx`, документація `.mdx`).
+
+- `Button` — `variant` primary/secondary, `href` (стає посиланням), `disabled` + `disabledReason`.
 
 ## Правила
 

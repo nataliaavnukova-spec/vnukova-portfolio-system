@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Кнопка для головних дій на сторінці: «Переглянути роботи», «Написати мені». Якщо передано `href`, вона стає посиланням (`#work`, `mailto:…`) і виглядає так само.
+
+<Canvas of={ButtonStories.Playground} />
+
+## Параметри
+
+<Controls of={ButtonStories.Playground} />
+
+Значення за замовчуванням: `variant="primary"`, `disabled=false`.
+
+## Варіанти і стани
+
+- **primary** — залита кольором `ink`, текст `canvas`. Головна дія. На сторінці бажано одна.
+- **secondary** — без заливки, межа `ink-muted`, текст `ink`. Другорядна дія поруч із primary.
+- **hover** — primary світлішає до `ink-muted`, secondary отримує фон `surface`.
+- **focus** — видимий контур `ink` при навігації клавішею Tab.
+- **disabled** — `aria-disabled`: кнопка лишається в порядку Tab і не реагує на клік; кольори `surface` і `ink-muted`. Поясни причину в `disabledReason`: її озвучує скрінрідер.
+
+## Токени
+
+Кольори: `ink`, `ink-muted`, `canvas`, `surface`. Радіус: `rounded-control`. Текст: `text-label`. Висота: `min-h-control`. Відступи: `px-8`, `py-4`.
+
+## Коли використовувати
+
+- Головна або другорядна дія на сторінці: перейти до розділу, написати листа.
+- Не використовуй для пунктів навігації й перемикача мови: для них є компонент Navigation.
+- Не став дві primary поруч: друга дія має бути secondary.
+
+## Як брати в код
+
+```tsx
+import { Button } from "@/components/Button/Button";
+
+<Button href="#work">Переглянути роботи</Button>
+<Button href="mailto:natalia.a.vnukova@gmail.com" variant="secondary">
+  Написати мені
+</Button>
+<Button disabled disabledReason="Скоро буде доступно">Завантажити CV</Button>
+```
