@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Токени дизайн-системи (затверджено, див. docs/tokens-draft.md).
+  Стандартні кольори, розміри тексту й радіуси Tailwind скинуті:
+  класи на кшталт text-white, text-sm, rounded-lg більше не працюють.
+*/
+@theme {
+  /* Скидання стандартів Tailwind */
+  --color-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+
+  /* Кольори (7 ролей) */
+  --color-canvas: #ffffff;
+  --color-surface: #faf6f0;
+  --color-line: #9a6114;
+  --color-accent: #2b142d;
+  --color-ink: #2b142d;
+  --color-ink-muted: #6b556e;
+  --color-danger: #b3261e;
+
+  /* Шрифти */
+  --font-sans: var(--font-onest), sans-serif;
+  --font-display: var(--font-playfair), serif;
+
+  /* Розміри тексту: розмір + висота рядка + жирність */
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--font-weight: 400;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.5;
+  --text-body--font-weight: 400;
+
+  --text-label: 1.125rem;
+  --text-label--line-height: 1;
+  --text-label--font-weight: 500;
+
+  --text-lead: 1.25rem;
+  --text-lead--line-height: 1.5;
+  --text-lead--font-weight: 400;
+
+  --text-heading: 2.5rem;
+  --text-heading--line-height: 1.2;
+  --text-heading--font-weight: 400;
+
+  --text-display: 4rem;
+  --text-display--line-height: 1.1;
+  --text-display--font-weight: 400;
+
+  /* Радіуси */
+  --radius-control: 9999px;
+  --radius-card: 1rem;
+
+  /* Пропорції картинок */
+  --aspect-avatar: 1 / 1;
+  --aspect-cover: 3 / 2;
+
+  /* Розміри елементів */
+  --spacing-control: 3.5rem; /* 56: мінімальна висота кнопок і пунктів меню */
+  --spacing-avatar: 7.5rem; /* 120: кругле фото */
+
+  /* Відступи рівня сторінки (компонентам не використовувати) */
+  --spacing-nav-gap: 3rem; /* 48: проміжок між пунктами меню */
+  --spacing-stack: 3.5rem; /* 56: проміжок між блоками першого екрана */
+  --spacing-section: 5rem; /* 80: відступ секції */
+  --spacing-page-lg: 5.375rem; /* 86: поля сторінки, десктоп */
+  --spacing-page-md: 2.5rem; /* 40: поля сторінки, планшет */
+  --spacing-page-sm: 1rem; /* 16: поля сторінки, телефон */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

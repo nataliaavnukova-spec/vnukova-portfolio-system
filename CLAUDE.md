@@ -15,7 +15,13 @@ Next.js (App Router) + TypeScript + Tailwind v4. Деталі — після к�
 
 ## Токени
 
-Заповнюється на кроці 2б (блок `@theme` у `app/globals.css`).
+Єдине джерело — блок `@theme` у `app/globals.css` (стандартні кольори, розміри тексту й радіуси Tailwind скинуті). Таблиця й рішення: `docs/tokens-draft.md`. Шрифти — `app/fonts.ts`.
+
+- Кольори: `canvas`, `surface`, `line`, `accent`, `ink`, `ink-muted`, `danger`.
+- Текст: `caption`, `body`, `label`, `lead`, `heading`, `display`; шрифти `font-sans`, `font-display`.
+- Радіуси: `control`, `card`. Пропорції: `avatar`, `cover`.
+- Відступи компонентів: лише 8, 12, 16, 24, 32 px (класи 2, 3, 4, 6, 8). Рівень сторінки: `nav-gap`, `stack`, `section`, `page-lg/md/sm`.
+- Заборонено: hex, `text-white`/`text-sm`/`rounded-lg`, значення в `[...]`.
 
 ## Компоненти
 
