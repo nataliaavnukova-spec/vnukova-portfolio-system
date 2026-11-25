@@ -1,0 +1,126 @@
+import { Meta, ColorPalette, ColorItem, Typeset } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Tokens" />
+
+# Токени
+
+Єдине джерело значень — блок `@theme` у `app/globals.css`. Ця сторінка читає значення звідти, тому вони тут не продубльовані. Докладно: `docs/tokens-draft.md`.
+
+## Кольори
+
+<ColorPalette>
+  <ColorItem
+    title="Основа"
+    subtitle="canvas: фон сторінки, текст на темній кнопці"
+    colors={{ canvas: "var(--color-canvas)" }}
+  />
+  <ColorItem
+    title="Поверхня"
+    subtitle="surface: картки й поля"
+    colors={{ surface: "var(--color-surface)" }}
+  />
+  <ColorItem
+    title="Лінія"
+    subtitle="line: декоративні лінії під шапкою, підкреслення активного пункту"
+    colors={{ line: "var(--color-line)" }}
+  />
+  <ColorItem
+    title="Акцент"
+    subtitle="accent: поки збігається з ink"
+    colors={{ accent: "var(--color-accent)" }}
+  />
+  <ColorItem
+    title="Текст"
+    subtitle="ink: текст, заливка основної кнопки"
+    colors={{ ink: "var(--color-ink)" }}
+  />
+  <ColorItem
+    title="Другорядний текст"
+    subtitle="ink-muted: другорядний текст, межа кнопки без заливки й поля"
+    colors={{ "ink-muted": "var(--color-ink-muted)" }}
+  />
+  <ColorItem
+    title="Помилка"
+    subtitle="danger: помилки у формі"
+    colors={{ danger: "var(--color-danger)" }}
+  />
+</ColorPalette>
+
+## Шрифти й розміри тексту
+
+Onest (`font-sans`) — інтерфейс. Playfair Display (`font-display`) — заголовки.
+
+<Typeset
+  fontFamily="var(--font-sans)"
+  fontWeight={400}
+  fontSizes={["var(--text-caption)", "var(--text-body)", "var(--text-lead)"]}
+  sampleText="Проєктую вебсервіси для бізнесу, якими просто користуватися"
+/>
+
+<Typeset
+  fontFamily="var(--font-sans)"
+  fontWeight={500}
+  fontSizes={["var(--text-label)"]}
+  sampleText="Переглянути роботи · Написати мені"
+/>
+
+<Typeset
+  fontFamily="var(--font-display)"
+  fontWeight={400}
+  fontSizes={["var(--text-heading)", "var(--text-display)"]}
+  sampleText="Привіт, я Наталя, UI/UX та Product Designer"
+/>
+
+Назви розмірів: `text-caption`, `text-body`, `text-label`, `text-lead`, `text-heading`, `text-display`.
+
+## Радіуси
+
+<div className="flex flex-wrap gap-6 items-center">
+  <div className="flex flex-col gap-2 items-start">
+    <div className="h-control w-40 border border-ink-muted rounded-control bg-surface" />
+    <code>rounded-control</code>
+  </div>
+  <div className="flex flex-col gap-2 items-start">
+    <div className="h-avatar w-40 border border-ink-muted rounded-card bg-surface" />
+    <code>rounded-card</code>
+  </div>
+</div>
+
+## Пропорції картинок
+
+<div className="flex flex-wrap gap-6 items-end">
+  <div className="flex flex-col gap-2 items-start">
+    <div className="w-32 aspect-avatar rounded-control border border-ink-muted bg-surface" />
+    <code>aspect-avatar (фото)</code>
+  </div>
+  <div className="flex flex-col gap-2 items-start">
+    <div className="w-48 aspect-cover rounded-card border border-ink-muted bg-surface" />
+    <code>aspect-cover (обкладинка картки)</code>
+  </div>
+</div>
+
+## Відступи компонентів
+
+Класи `p-2`, `p-3`, `p-4`, `p-6`, `p-8` (також `gap-*`, `m-*`).
+
+<div className="flex flex-col gap-3">
+  <div className="flex items-center gap-4"><div className="h-4 w-2 bg-ink" /><code>2</code></div>
+  <div className="flex items-center gap-4"><div className="h-4 w-3 bg-ink" /><code>3</code></div>
+  <div className="flex items-center gap-4"><div className="h-4 w-4 bg-ink" /><code>4</code></div>
+  <div className="flex items-center gap-4"><div className="h-4 w-6 bg-ink" /><code>6</code></div>
+  <div className="flex items-center gap-4"><div className="h-4 w-8 bg-ink" /><code>8</code></div>
+</div>
+
+## Відступи й розміри рівня сторінки
+
+Для сторінок, не для компонентів.
+
+<div className="flex flex-col gap-3">
+  <div className="flex items-center gap-4"><div className="h-4 w-nav-gap bg-ink" /><code>nav-gap</code></div>
+  <div className="flex items-center gap-4"><div className="h-4 w-stack bg-ink" /><code>stack</code></div>
+  <div className="flex items-center gap-4"><div className="h-4 w-section bg-ink" /><code>section</code></div>
+  <div className="flex items-center gap-4"><div className="h-4 w-page-sm bg-ink" /><code>page-sm (поля, телефон)</code></div>
+  <div className="flex items-center gap-4"><div className="h-4 w-page-md bg-ink" /><code>page-md (поля, планшет)</code></div>
+  <div className="flex items-center gap-4"><div className="h-4 w-page-lg bg-ink" /><code>page-lg (поля, десктоп)</code></div>
+  <div className="flex items-center gap-4"><div className="h-control w-control bg-ink" /><code>control (мін. висота кнопок)</code></div>
+</div>
