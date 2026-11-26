@@ -28,6 +28,7 @@ Next.js (App Router) + TypeScript + Tailwind v4. Деталі — після к�
 Лежать у `components/<Назва>/` (компонент, історія `.stories.tsx`, документація `.mdx`).
 
 - `Button` — `variant` primary/secondary, `href` (стає посиланням), `disabled` + `disabledReason`.
+- `Navigation` — `items` (id, label, href), `activeId`, `language` UA/EN + `onLanguageChange`; до 1024 px меню в панелі за кнопкою. Логотип: `assets/logo-n.svg`.
 
 ## Правила
 

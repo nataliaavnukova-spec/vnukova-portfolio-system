@@ -1,0 +1,53 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
+import * as NavigationStories from "./Navigation.stories";
+
+<Meta of={NavigationStories} />
+
+# Navigation
+
+Шапка сайту: логотип з іменем, пункти меню, перемикач мови UA/EN, під шапкою тонка лінія `line`. На широкому екрані пункти видно одразу. На вузькому (до 1024 px) лишаються логотип і кнопка меню, а пункти й перемикач мови відкриваються панеллю поверх контенту.
+
+<Canvas of={NavigationStories.Playground} />
+
+## Параметри
+
+<Controls of={NavigationStories.Playground} />
+
+Значення за замовчуванням: `language="UA"`, `brandName="Natalia Vnukova"`, `menuLabel="Меню"`, `closeLabel="Закрити меню"`. `items` обов'язковий: список з `id`, `label`, `href`.
+
+Мобільну версію дивись через кнопку Viewport у тулбарі Storybook (наприклад, Mobile).
+
+## Варіанти і стани
+
+- **Активний пункт** — `activeId`: підкреслення кольором `line` і `aria-current="location"`.
+- **Мова** — перемикач UA/EN: вибрана мова залита `ink`. Зміну віддає `onLanguageChange`.
+- **Меню на телефоні** — кнопка з `aria-expanded`. Після відкриття фокус переходить на перший пункт, Tab ходить по колу, Escape закриває меню і повертає фокус на кнопку. Клік по пункту теж закриває меню.
+- **Focus** — видимий контур `ink` на всіх інтерактивних елементах.
+
+## Токени
+
+Кольори: `ink`, `canvas`, `line`, `surface`. Радіус: `rounded-control`. Текст: `text-body` (пункти), `text-label` (UA/EN). Розміри: `min-h-control`. Відступи: `gap-3`, `gap-6`, `py-6`, `px-6`. Рівень сторінки: `gap-nav-gap`, `px-page-sm`, `px-page-md`, `px-page-lg`.
+
+## Коли використовувати
+
+- Одна шапка зверху кожної сторінки сайту.
+- Не використовуй для дій у тілі сторінки (кнопки «Переглянути роботи»): для них є Button.
+- Пункти — це якорі розділів сторінки (`#work`) або адреси сторінок.
+
+## Як брати в код
+
+```tsx
+import { Navigation } from "@/components/Navigation/Navigation";
+
+<Navigation
+  activeId="work"
+  language="UA"
+  onLanguageChange={(lang) => setLang(lang)}
+  items={[
+    { id: "work", label: "Роботи", href: "#work" },
+    { id: "about", label: "Про мене", href: "#about" },
+    { id: "approach", label: "Підхід", href: "#approach" },
+    { id: "contact", label: "Контакт", href: "#contact" },
+  ]}
+/>
+```
