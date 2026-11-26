@@ -42,7 +42,7 @@ export function ProjectCard({
         <p className="text-body text-ink-muted">{description}</p>
         <a
           href={href}
-          className="mt-2 inline-flex min-h-control items-center self-start text-label text-ink underline underline-offset-4 outline-none after:absolute after:inset-0 after:content-['']"
+          className="mt-2 inline-flex min-h-control items-center self-start text-label text-ink underline underline-offset-4 outline-none after:absolute after:inset-0"
         >
           {linkLabel}
         </a>

@@ -61,6 +61,19 @@
   --spacing-control: 3.5rem; /* 56: мінімальна висота кнопок і пунктів меню */
   --spacing-avatar: 7.5rem; /* 120: кругле фото */
 
+  /* Анімація появи першого екрана (вимикається класом motion-reduce:animate-none) */
+  --animate-rise: rise 600ms ease-out both;
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   /* Відступи рівня сторінки (компонентам не використовувати) */
   --spacing-nav-gap: 3rem; /* 48: проміжок між пунктами меню */
   --spacing-stack: 3.5rem; /* 56: проміжок між блоками першого екрана */
