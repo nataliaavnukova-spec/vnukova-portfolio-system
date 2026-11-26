@@ -1,0 +1,50 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
+import * as ProjectCardStories from "./ProjectCard.stories";
+
+<Meta of={ProjectCardStories} />
+
+# ProjectCard
+
+Картка проєкту в списку робіт: обкладинка, назва, короткий опис і посилання на сторінку проєкту. Клікабельна вся картка.
+
+<Canvas of={ProjectCardStories.Playground} />
+
+## Параметри
+
+<Controls of={ProjectCardStories.Playground} />
+
+Значення за замовчуванням: `linkLabel="Дивитись проєкт"`, `imageAlt=""`. Обов'язкові: `title`, `description`, `href`, `image`. Картинка — імпорт з `assets` (`import cover from "@/assets/cover.jpg"`), пропорція обкладинки задається токеном `aspect-cover`.
+
+## Варіанти і стани
+
+Варіантів немає: усі картки однакові.
+
+- **hover** — межа картки темнішає з `line` до `ink`.
+- **focus** — при навігації клавішею Tab контур `ink` навколо всієї картки. Фокус на посиланні, але видимий на картці.
+- **довгий текст** — назва й опис переносяться на нові рядки, картка росте вниз.
+- **`imageAlt`** — порожній, якщо обкладинка декоративна. Інакше короткий опис того, що на картинці.
+
+## Токени
+
+Кольори: `surface` (фон), `line` і `ink` (межа), `ink` (назва, посилання), `ink-muted` (опис). Радіус: `rounded-card`. Пропорція: `aspect-cover`. Текст: `font-display` + `text-lead` (назва), `text-body` (опис), `text-label` (посилання). Відступи: `p-6`, `gap-3`, `mt-2`. Висота посилання: `min-h-control`.
+
+## Коли використовувати
+
+- Список робіт на головній і на сторінці портфоліо.
+- Не використовуй для дій, які не ведуть на сторінку проєкту: для них є Button.
+- Не клади в картку інші посилання чи кнопки: клікабельна вся картка.
+
+## Як брати в код
+
+```tsx
+import cover from "@/assets/mobibubble-cover.jpg";
+import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
+
+<ProjectCard
+  title="MobiBubble"
+  description="Мобільний застосунок для…"
+  href="/work/mobibubble"
+  image={cover}
+  imageAlt="Екрани застосунку MobiBubble"
+/>
+```
